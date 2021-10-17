@@ -17,7 +17,7 @@ package main
 import (
 	"os"
 
-	"github.com/vishen/go-chromecast/cmd"
+	"github.com/0x00-0x00/go-chromecast/cmd"
 )
 
 var (

@@ -15,9 +15,9 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
-	"github.com/vishen/go-chromecast/application"
-	castdns "github.com/vishen/go-chromecast/dns"
-	"github.com/vishen/go-chromecast/storage"
+	"github.com/0x00-0x00/go-chromecast/application"
+	castdns "github.com/0x00-0x00/go-chromecast/dns"
+	"github.com/0x00-0x00/go-chromecast/storage"
 )
 
 func init() {
