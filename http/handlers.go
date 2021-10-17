@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
-	"github.com/vishen/go-chromecast/application"
-	"github.com/vishen/go-chromecast/dns"
+	"github.com/0x00-0x00/go-chromecast/application"
+	"github.com/0x00-0x00/go-chromecast/dns"
 )
 
 type Handler struct {
