@@ -43,12 +43,13 @@ that ffmpeg is installed.`,
 		contentType, _ := cmd.Flags().GetString("content-type")
 		transcode, _ := cmd.Flags().GetBool("transcode")
 		detach, _ := cmd.Flags().GetBool("detach")
+		subtitle, _ := cmd.Flags().GetString("subtitle")
 
 		// Optionally run a UI when playing this media:
 		runWithUI, _ := cmd.Flags().GetBool("with-ui")
 		if runWithUI {
 			go func() {
-				if err := app.Load(args[0], contentType, transcode, detach, false); err != nil {
+				if err := app.Load(args[0], contentType, transcode, detach, false, subtitle); err != nil {
 					exit("unable to load media: %v\n", err)
 				}
 			}()
@@ -63,7 +64,7 @@ that ffmpeg is installed.`,
 		}
 
 		// Otherwise just run in CLI mode:
-		if err := app.Load(args[0], contentType, transcode, detach, false); err != nil {
+		if err := app.Load(args[0], contentType, transcode, detach, false, subtitle); err != nil {
 			exit("unable to load media: %v\n", err)
 		}
 	},
@@ -74,4 +75,5 @@ func init() {
 	loadCmd.Flags().Bool("transcode", true, "transcode the media to mp4 if media type is unrecognised")
 	loadCmd.Flags().Bool("detach", false, "detach from waiting until media finished. Only works with url loaded external media")
 	loadCmd.Flags().StringP("content-type", "c", "", "content-type to serve the media file as")
+	loadCmd.Flags().StringP("subtitle", "", "", "filename of subtitle file")
 }
